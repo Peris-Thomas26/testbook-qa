@@ -42,3 +42,17 @@ To re-index after changing PDFs, delete `vector_db_minilm/` and run `python main
 - Answers can be wrong or miss relevant passages, so check the cited page
 - Chapter labels are guessed from page text and may show "Unknown Chapter"
 - Don't commit `.env`
+
+## Roles of the imported libraries
+Component	Its main job
+os: Find and manage local files
+re: Extract chapter numbers from text
+PyPDFLoader:	Read PDF textbooks
+TextLoader:	Read plain-text files (unused)
+RecursiveCharacterTextSplitter:	Split textbook text into chunks
+HuggingFaceEmbeddings:	Convert text into numerical vectors
+Chroma:	Store and retrieve vectors
+GoogleGenerativeAI:	Connect to Gemini for answer generation
+PromptTemplate:	Structure the instructions sent to Gemini
+RetrievalQA:	Coordinate retrieval and answer generation
+config:	Store project configuration settings
