@@ -2,7 +2,8 @@ import os
 import re
 from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_google_genai import GoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+from langchain_google_genai import GoogleGenerativeAI
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_classic.chains.retrieval_qa.base import RetrievalQA
 from langchain_core.prompts import PromptTemplate
@@ -84,9 +85,8 @@ def create_embeddings():
     if not GEMINI_API_KEY:
         raise ValueError("GEMINI_KEY not found. Add your Gemini API key to .env.")
     
-    return GoogleGenerativeAIEmbeddings(
-        model=EMBEDDING_MODEL,
-        api_key=GEMINI_API_KEY
+    return HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
 
 def create_vector_store(chunks):

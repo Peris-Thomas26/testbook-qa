@@ -5,7 +5,7 @@ load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_KEY")
 TEXTBOOKS_DIR = "Textbooks"
-VECTOR_DB_DIR = "vector_db_gemini_rebuild_1"
+VECTOR_DB_DIR = "vector_db_minilm"
 EMBEDDING_MODEL = "gemini-embedding-001"
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
